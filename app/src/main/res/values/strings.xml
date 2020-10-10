@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">Verity Foods</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="title_activity_home">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="name">Name</string>
+    <string name="phone">Phone</string>
+    <string name="creat_password">Create Password</string>
+    <string name="singup">Signup</string>
+    <string name="address">Address</string>
+    <string name="signup">Signup</string>
+    <string name="login">Login</string>
+    <string name="category">Category</string>
+    <string name="offers">Offers</string>
+    <string name="search">Search</string>
+    <string name="basket">Basket</string>
+    <string name="account">Account</string>
+    <string name="my_orders">My Orders</string>
+    <string name="search_here">Search here</string>
+    <string name="shop_now">Shop Now</string>
+    <string name="shop_by_category">Shop By Category</string>
+    <string name="category_name">Category Name</string>
+    <string name="cart">Cart</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="shop">Shop</string>
+    <string name="enter_your_phone_number">Enter your phone number</string>
+    <string name="enter_the_code_that_has_been_sent_via_sms">Enter the code that has been sent via SMS</string>
+    <string name="enter_code">Enter code</string>
+    <string name="enter_details">Enter your details to complete the registration process</string>
+    <string name="logout">Logout</string>
+    <string name="log_out_message">Are you sure you want log out?</string>
+    <string name="cancel">No</string>
+    <string name="hello_customer">Hello Customer!</string>
+    <string name="login_now">Login now</string>
+    <string name="login_with_phone">Login with phone</string>
+    <string name="email">Email</string>
+    <string name="continue_next">Continue</string>
+
+    <string name="google_maps_key">AIzaSyCE1qv5ePq-AL8sB1kYb-Ing_zOZdv5-S8</string>
+    <string name="your_address">Your address</string>
+    <string name="notifications">Notifications</string>
+    <string name="share">Share</string>
+    <string name="my_pofile">My Pofile</string>
+    <string name="about_us">About Us</string>
+    <string name="faqs">FAQs</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="terms_and_conditions">Terms and Conditions</string>
+
+</resources>

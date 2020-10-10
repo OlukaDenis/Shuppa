@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.shuppa.ui.bottomviews.home.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_account"
+        android:name="com.shuppa.ui.account.AccountFragment"
+        android:label="Account"
+        tools:layout="@layout/fragment_account" />
+
+    <fragment
+        android:id="@+id/nav_about"
+        android:name="com.shuppa.ui.about.AboutFragment"
+        android:label="About Us"
+        tools:layout="@layout/fragment_about" />
+
+    <fragment
+        android:id="@+id/nav_notifications"
+        android:name="com.shuppa.ui.notifications.NotificationsFragment"
+        android:label="Notifications"
+        tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/nav_privacy"
+        android:name="com.shuppa.ui.privacy.PrivacyFragment"
+        android:label="Privacy Policy"
+        tools:layout="@layout/fragment_privacy" />
+
+    <fragment
+        android:id="@+id/nav_terms"
+        android:name="com.shuppa.ui.terms.TermsFragment"
+        android:label="Terms of Service"
+        tools:layout="@layout/fragment_terms" />
+
+    <fragment
+        android:id="@+id/nav_orders"
+        android:name="com.shuppa.ui.orders.OrdersFragment"
+        android:label="Orders"
+        tools:layout="@layout/fragment_orders" />
+
+    <fragment
+        android:id="@+id/navigation_orders_details"
+        android:name="com.shuppa.ui.orders.OrderDetailFragment"
+        android:label="Order Status"
+        tools:layout="@layout/fragment_order_detail" />
+
+    <fragment
+        android:id="@+id/nav_faq"
+        android:name="com.shuppa.ui.faqs.FaqsFragment"
+        android:label="Frquently Asked Questions"
+        tools:layout="@layout/fragment_faqs" />
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.shuppa.ui.bottomviews.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_category"
+        android:name="com.shuppa.ui.bottomviews.category.CategoryFragment"
+        android:label="@string/category"
+        tools:layout="@layout/fragment_category" />
+
+    <fragment
+        android:id="@+id/navigation_shop"
+        android:name="com.shuppa.ui.bottomviews.shop.ShopFragment"
+        android:label="@string/shop"
+        tools:layout="@layout/fragment_shop" />
+
+    <fragment
+        android:id="@+id/navigation_brands"
+        android:name="com.shuppa.ui.brands.BrandFragment"
+        android:label="Brands"
+        tools:layout="@layout/fragment_brand" />
+
+    <fragment
+        android:id="@+id/navigation_brand_products"
+        android:name="com.shuppa.ui.brands.BrandProductsFragment"
+        android:label="Brand Products"
+        tools:layout="@layout/fragment_brand_products" />
+
+    <fragment
+        android:id="@+id/navigation_offers"
+        android:name="com.shuppa.ui.bottomviews.offers.OffersFragment"
+        android:label="@string/offers"
+        tools:layout="@layout/fragment_offers" />
+
+    <fragment
+        android:id="@+id/navigation_cart"
+        android:name="com.shuppa.ui.bottomviews.basket.BasketFragment"
+        android:label="@string/basket"
+        tools:layout="@layout/fragment_basket" />
+
+    <fragment
+        android:id="@+id/navigation_products"
+        android:name="com.shuppa.ui.products.ProductsFragment"
+        android:label="Products"
+        tools:layout="@layout/fragment_products" />
+
+    <fragment
+        android:id="@+id/navigation_sub_category"
+        android:name="com.shuppa.ui.products.SubCategoriesFragment"
+        android:label="Sub Category"
+        tools:layout="@layout/fragment_sub_categories" />
+
+</navigation>

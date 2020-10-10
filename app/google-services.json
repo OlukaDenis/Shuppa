@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "628745574930",
+    "firebase_url": "https://verity-foods-b82ee.firebaseio.com",
+    "project_id": "verity-foods-b82ee",
+    "storage_bucket": "verity-foods-b82ee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:628745574930:android:6a42673f72ce205257d6cb",
+        "android_client_info": {
+          "package_name": "com.verityfoods"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "628745574930-h7qvjecn00cee5hr5qnin6ejgbijvhk8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.verityfoods",
+            "certificate_hash": "05108368d28ee56cd45242e04e2e60a511653323"
+          }
+        },
+        {
+          "client_id": "628745574930-r7umhvjutou7hld9u6j0ktra6dtusdet.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzpdDvjAjXrr-EcOEQMKRJS6mkS_WWRkE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "628745574930-r7umhvjutou7hld9u6j0ktra6dtusdet.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
