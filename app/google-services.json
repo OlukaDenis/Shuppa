@@ -8,6 +8,43 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:628745574930:android:d1ecb759fb24b07257d6cb",
+        "android_client_info": {
+          "package_name": "com.shuppa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "628745574930-ojhotoosu4mft0bp82m9nnacuerl1gjk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.shuppa",
+            "certificate_hash": "05108368d28ee56cd45242e04e2e60a511653323"
+          }
+        },
+        {
+          "client_id": "628745574930-r7umhvjutou7hld9u6j0ktra6dtusdet.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzpdDvjAjXrr-EcOEQMKRJS6mkS_WWRkE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "628745574930-r7umhvjutou7hld9u6j0ktra6dtusdet.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:628745574930:android:6a42673f72ce205257d6cb",
         "android_client_info": {
           "package_name": "com.verityfoods"
