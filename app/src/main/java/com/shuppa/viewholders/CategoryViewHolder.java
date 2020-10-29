@@ -1,4 +1,4 @@
-package com.verityfoods.viewholders;
+package com.shuppa.viewholders;
 
 import android.content.Context;
 import android.view.View;
@@ -9,9 +9,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.verityfoods.R;
-import com.verityfoods.data.interfaces.CustomItemClickListener;
-import com.verityfoods.data.model.Category;
+import com.shuppa.R;
+import com.shuppa.data.interfaces.CustomItemClickListener;
+import com.shuppa.data.model.Category;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

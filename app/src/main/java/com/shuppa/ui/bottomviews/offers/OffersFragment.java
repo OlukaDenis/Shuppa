@@ -1,4 +1,4 @@
-package com.verityfoods.ui.bottomviews.offers;
+package com.shuppa.ui.bottomviews.offers;
 
 import android.os.Bundle;
 
@@ -26,13 +26,13 @@ import com.google.firebase.firestore.Query;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
-import com.verityfoods.R;
-import com.verityfoods.data.adapters.DealSliderAdapter;
-import com.verityfoods.data.model.Deal;
-import com.verityfoods.data.model.Product;
-import com.verityfoods.utils.Globals;
-import com.verityfoods.utils.Vars;
-import com.verityfoods.viewholders.ProductViewHolder;
+import com.shuppa.R;
+import com.shuppa.data.adapters.DealSliderAdapter;
+import com.shuppa.data.model.Deal;
+import com.shuppa.data.model.Product;
+import com.shuppa.utils.Globals;
+import com.shuppa.utils.Vars;
+import com.shuppa.viewholders.ProductViewHolder;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -45,7 +45,7 @@ import java.util.TimerTask;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.verityfoods.utils.Globals.MAX_LIST_SIZE;
+import static com.shuppa.utils.Globals.MAX_LIST_SIZE;
 
 public class OffersFragment extends Fragment {
     private static final String TAG = "OffersFragment";

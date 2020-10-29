@@ -1,4 +1,4 @@
-package com.verityfoods.ui.bottomviews.shop;
+package com.shuppa.ui.bottomviews.shop;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -19,11 +19,11 @@ import com.firebase.ui.firestore.paging.FirestorePagingAdapter;
 import com.firebase.ui.firestore.paging.FirestorePagingOptions;
 import com.firebase.ui.firestore.paging.LoadingState;
 import com.google.firebase.firestore.Query;
-import com.verityfoods.R;
-import com.verityfoods.data.model.Product;
-import com.verityfoods.utils.Globals;
-import com.verityfoods.utils.Vars;
-import com.verityfoods.viewholders.ProductViewHolder;
+import com.shuppa.R;
+import com.shuppa.data.model.Product;
+import com.shuppa.utils.Globals;
+import com.shuppa.utils.Vars;
+import com.shuppa.viewholders.ProductViewHolder;
 
 import java.util.HashMap;
 import java.util.Map;

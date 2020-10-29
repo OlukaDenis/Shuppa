@@ -1,4 +1,4 @@
-package com.verityfoods.data.model;
+package com.shuppa.data.model;
 
 public class Variable {
     private String uuid;

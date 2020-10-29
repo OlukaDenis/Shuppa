@@ -1,4 +1,4 @@
-package com.verityfoods.viewholders;
+package com.shuppa.viewholders;
 
 import android.content.Context;
 import android.util.Log;
@@ -8,9 +8,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.verityfoods.R;
-import com.verityfoods.data.model.Brand;
-import com.verityfoods.data.model.Product;
+import com.shuppa.R;
+import com.shuppa.data.model.Brand;
+import com.shuppa.data.model.Product;
 
 public class BrandViewHolder extends RecyclerView.ViewHolder {
     private static final String TAG = "BrandViewHolder";

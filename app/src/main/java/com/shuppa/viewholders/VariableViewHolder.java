@@ -1,4 +1,4 @@
-package com.verityfoods.viewholders;
+package com.shuppa.viewholders;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,8 +8,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.verityfoods.R;
-import com.verityfoods.data.model.Variable;
+import com.shuppa.R;
+import com.shuppa.data.model.Variable;
 
 public class VariableViewHolder extends RecyclerView.ViewHolder {
     public TextView variableName;

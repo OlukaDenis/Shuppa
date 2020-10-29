@@ -1,4 +1,4 @@
-package com.verityfoods.viewholders;
+package com.shuppa.viewholders;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -23,14 +23,14 @@ import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.verityfoods.R;
-import com.verityfoods.data.adapters.VariablesAdapter;
-import com.verityfoods.data.model.Cart;
-import com.verityfoods.data.model.Product;
-import com.verityfoods.data.model.Variable;
-import com.verityfoods.utils.AppUtils;
-import com.verityfoods.utils.Globals;
-import com.verityfoods.utils.Vars;
+import com.shuppa.R;
+import com.shuppa.data.adapters.VariablesAdapter;
+import com.shuppa.data.model.Cart;
+import com.shuppa.data.model.Product;
+import com.shuppa.data.model.Variable;
+import com.shuppa.utils.AppUtils;
+import com.shuppa.utils.Globals;
+import com.shuppa.utils.Vars;
 
 import java.util.HashMap;
 import java.util.Map;

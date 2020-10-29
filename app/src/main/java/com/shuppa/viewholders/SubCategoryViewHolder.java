@@ -1,4 +1,4 @@
-package com.verityfoods.viewholders;
+package com.shuppa.viewholders;
 
 import android.view.View;
 import android.widget.TextView;
@@ -6,8 +6,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.verityfoods.R;
-import com.verityfoods.data.model.SubCategory;
+import com.shuppa.R;
+import com.shuppa.data.model.SubCategory;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

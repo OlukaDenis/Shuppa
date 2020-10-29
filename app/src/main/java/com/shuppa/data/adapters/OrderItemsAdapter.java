@@ -1,4 +1,4 @@
-package com.verityfoods.data.adapters;
+package com.shuppa.data.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,10 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.verityfoods.R;
-import com.verityfoods.data.model.Cart;
-import com.verityfoods.utils.AppUtils;
-import com.verityfoods.utils.Vars;
+import com.shuppa.R;
+import com.shuppa.data.model.Cart;
+import com.shuppa.utils.AppUtils;
 
 import java.util.List;
 

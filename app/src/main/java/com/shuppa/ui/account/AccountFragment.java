@@ -1,4 +1,4 @@
-package com.verityfoods.ui.account;
+package com.shuppa.ui.account;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -28,11 +28,11 @@ import com.google.firebase.storage.UploadTask;
 import com.linchaolong.android.imagepicker.ImagePicker;
 import com.linchaolong.android.imagepicker.cropper.CropImage;
 import com.linchaolong.android.imagepicker.cropper.CropImageView;
-import com.verityfoods.R;
-import com.verityfoods.data.model.User;
-import com.verityfoods.ui.auth.SignupActivity;
-import com.verityfoods.utils.Globals;
-import com.verityfoods.utils.Vars;
+import com.shuppa.R;
+import com.shuppa.data.model.User;
+import com.shuppa.ui.auth.SignupActivity;
+import com.shuppa.utils.Globals;
+import com.shuppa.utils.Vars;
 
 import java.io.File;
 import java.util.Date;

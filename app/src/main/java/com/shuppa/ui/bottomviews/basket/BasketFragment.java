@@ -1,4 +1,4 @@
-package com.verityfoods.ui.bottomviews.basket;
+package com.shuppa.ui.bottomviews.basket;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -33,19 +33,19 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.verityfoods.MainActivity;
-import com.verityfoods.R;
-import com.verityfoods.data.model.Cart;
-import com.verityfoods.data.model.Category;
-import com.verityfoods.data.model.Product;
-import com.verityfoods.ui.auth.AuthChooser;
-import com.verityfoods.ui.auth.SignupActivity;
-import com.verityfoods.ui.checkout.CheckoutActivity;
-import com.verityfoods.utils.AppUtils;
-import com.verityfoods.utils.Globals;
-import com.verityfoods.utils.Vars;
-import com.verityfoods.viewholders.CartViewHolder;
-import com.verityfoods.viewholders.ProductViewHolder;
+import com.shuppa.MainActivity;
+import com.shuppa.R;
+import com.shuppa.data.model.Cart;
+import com.shuppa.data.model.Category;
+import com.shuppa.data.model.Product;
+import com.shuppa.ui.auth.AuthChooser;
+import com.shuppa.ui.auth.SignupActivity;
+import com.shuppa.ui.checkout.CheckoutActivity;
+import com.shuppa.utils.AppUtils;
+import com.shuppa.utils.Globals;
+import com.shuppa.utils.Vars;
+import com.shuppa.viewholders.CartViewHolder;
+import com.shuppa.viewholders.ProductViewHolder;
 
 import java.util.Objects;
 

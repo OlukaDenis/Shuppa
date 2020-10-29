@@ -1,4 +1,4 @@
-package com.verityfoods.ui.account;
+package com.shuppa.ui.account;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

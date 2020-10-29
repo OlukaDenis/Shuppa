@@ -1,4 +1,4 @@
-package com.verityfoods;
+package com.shuppa;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,14 +19,14 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.shuppa.utils.Globals;
+import com.shuppa.utils.Vars;
 import com.verityfoods.data.local.LocalDataSource;
 import com.verityfoods.data.model.Brand;
 import com.verityfoods.data.model.Product;
 import com.verityfoods.data.model.User;
 import com.verityfoods.ui.auth.SignupActivity;
 import com.verityfoods.ui.search.SearchActivity;
-import com.verityfoods.utils.Globals;
-import com.verityfoods.utils.Vars;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

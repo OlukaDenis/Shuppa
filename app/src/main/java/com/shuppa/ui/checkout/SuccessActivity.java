@@ -1,4 +1,4 @@
-package com.verityfoods.ui.checkout;
+package com.shuppa.ui.checkout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -7,9 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.verityfoods.MainActivity;
-import com.verityfoods.R;
-import com.verityfoods.utils.Globals;
+import com.shuppa.MainActivity;
+import com.shuppa.R;
+import com.shuppa.utils.Globals;
 
 import java.util.Objects;
 

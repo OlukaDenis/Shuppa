@@ -1,8 +1,7 @@
-package com.verityfoods.data.local;
+package com.shuppa.data.local;
 
-import com.verityfoods.R;
-import com.verityfoods.data.model.Brand;
-import com.verityfoods.data.model.Category;
+
+import com.shuppa.data.model.Brand;
 
 import java.util.ArrayList;
 import java.util.List;

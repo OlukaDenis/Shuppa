@@ -1,4 +1,4 @@
-package com.verityfoods.ui.search;
+package com.shuppa.ui.search;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,16 +28,16 @@ import com.firebase.ui.firestore.paging.LoadingState;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.verityfoods.R;
-import com.verityfoods.data.adapters.BrandSearchAdapter;
-import com.verityfoods.data.model.Cart;
-import com.verityfoods.data.model.Product;
-import com.verityfoods.data.model.Variable;
-import com.verityfoods.utils.AppUtils;
-import com.verityfoods.utils.Globals;
-import com.verityfoods.utils.Vars;
-import com.verityfoods.viewholders.ProductViewHolder;
-import com.verityfoods.viewholders.VariableViewHolder;
+import com.shuppa.R;
+import com.shuppa.data.adapters.BrandSearchAdapter;
+import com.shuppa.data.model.Cart;
+import com.shuppa.data.model.Product;
+import com.shuppa.data.model.Variable;
+import com.shuppa.utils.AppUtils;
+import com.shuppa.utils.Globals;
+import com.shuppa.utils.Vars;
+import com.shuppa.viewholders.ProductViewHolder;
+import com.shuppa.viewholders.VariableViewHolder;
 
 import java.util.ArrayList;
 import java.util.HashMap;

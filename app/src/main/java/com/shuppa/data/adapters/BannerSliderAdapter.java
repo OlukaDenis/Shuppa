@@ -1,4 +1,4 @@
-package com.verityfoods.data.adapters;
+package com.shuppa.data.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,10 +7,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.shuppa.R;
 import com.smarteist.autoimageslider.SliderViewAdapter;
-import com.verityfoods.R;
-import com.verityfoods.data.model.ProductSlider;
-import com.verityfoods.utils.Vars;
+import com.shuppa.data.model.ProductSlider;
+import com.shuppa.utils.Vars;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.verityfoods.data.adapters;
+package com.shuppa.data.adapters;
 
 import android.app.Activity;
 import android.os.Build;
@@ -15,10 +15,10 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
-import com.verityfoods.R;
-import com.verityfoods.data.model.Brand;
-import com.verityfoods.utils.Globals;
-import com.verityfoods.viewholders.BrandViewHolder;
+import com.shuppa.R;
+import com.shuppa.data.model.Brand;
+import com.shuppa.utils.Globals;
+import com.shuppa.viewholders.BrandViewHolder;
 
 import java.text.Collator;
 import java.util.Collections;

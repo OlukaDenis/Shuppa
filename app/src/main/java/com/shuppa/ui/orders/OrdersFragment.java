@@ -1,4 +1,4 @@
-package com.verityfoods.ui.orders;
+package com.shuppa.ui.orders;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,12 +27,12 @@ import com.firebase.ui.firestore.paging.FirestorePagingAdapter;
 import com.firebase.ui.firestore.paging.FirestorePagingOptions;
 import com.firebase.ui.firestore.paging.LoadingState;
 import com.google.firebase.firestore.Query;
-import com.verityfoods.R;
-import com.verityfoods.data.model.Order;
-import com.verityfoods.ui.auth.SignupActivity;
-import com.verityfoods.utils.Globals;
-import com.verityfoods.utils.Vars;
-import com.verityfoods.viewholders.OrderViewHolder;
+import com.shuppa.R;
+import com.shuppa.data.model.Order;
+import com.shuppa.ui.auth.SignupActivity;
+import com.shuppa.utils.Globals;
+import com.shuppa.utils.Vars;
+import com.shuppa.viewholders.OrderViewHolder;
 
 public class OrdersFragment extends Fragment {
     private static final String TAG = "OrdersFragment";

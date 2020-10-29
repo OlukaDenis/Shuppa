@@ -1,4 +1,4 @@
-package com.verityfoods.ui.products;
+package com.shuppa.ui.products;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -26,15 +26,15 @@ import com.firebase.ui.firestore.paging.FirestorePagingAdapter;
 import com.firebase.ui.firestore.paging.FirestorePagingOptions;
 import com.firebase.ui.firestore.paging.LoadingState;
 import com.google.firebase.firestore.Query;
-import com.verityfoods.MainActivity;
-import com.verityfoods.R;
-import com.verityfoods.data.model.Category;
-import com.verityfoods.data.model.Product;
-import com.verityfoods.data.model.SubCategory;
-import com.verityfoods.utils.Globals;
-import com.verityfoods.utils.Vars;
-import com.verityfoods.viewholders.ProductViewHolder;
-import com.verityfoods.viewholders.SubCategoryViewHolder;
+import com.shuppa.MainActivity;
+import com.shuppa.R;
+import com.shuppa.data.model.Category;
+import com.shuppa.data.model.Product;
+import com.shuppa.data.model.SubCategory;
+import com.shuppa.utils.Globals;
+import com.shuppa.utils.Vars;
+import com.shuppa.viewholders.ProductViewHolder;
+import com.shuppa.viewholders.SubCategoryViewHolder;
 
 import java.util.HashMap;
 import java.util.Map;

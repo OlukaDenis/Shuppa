@@ -1,4 +1,4 @@
-package com.verityfoods.viewholders;
+package com.shuppa.viewholders;
 
 import android.app.Activity;
 import android.content.Context;
@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.smarteist.autoimageslider.SliderViewAdapter;
-import com.verityfoods.R;
-import com.verityfoods.data.model.Deal;
+import com.shuppa.R;
+import com.shuppa.data.model.Deal;
 
 import butterknife.ButterKnife;
 

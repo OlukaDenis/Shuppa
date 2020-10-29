@@ -1,4 +1,4 @@
-package com.verityfoods.data.interfaces;
+package com.shuppa.data.interfaces;
 
 import android.view.View;
 

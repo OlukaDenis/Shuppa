@@ -1,4 +1,4 @@
-package com.verityfoods.data.model;
+package com.shuppa.data.model;
 
 public class ProductSlider {
     private String image;

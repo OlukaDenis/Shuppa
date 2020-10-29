@@ -1,4 +1,4 @@
-package com.verityfoods.ui.bottomviews.home;
+package com.shuppa.ui.bottomviews.home;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,19 +26,19 @@ import com.firebase.ui.firestore.paging.LoadingState;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.Query;
+import com.shuppa.utils.Vars;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
-import com.verityfoods.R;
-import com.verityfoods.data.adapters.BannerSliderAdapter;
-import com.verityfoods.data.adapters.DealSliderAdapter;
-import com.verityfoods.data.model.Category;
-import com.verityfoods.data.model.Deal;
-import com.verityfoods.data.model.ProductSlider;
-import com.verityfoods.ui.search.SearchActivity;
-import com.verityfoods.utils.Globals;
-import com.verityfoods.utils.Vars;
-import com.verityfoods.viewholders.CategoryViewHolder;
+import com.shuppa.R;
+import com.shuppa.data.adapters.BannerSliderAdapter;
+import com.shuppa.data.adapters.DealSliderAdapter;
+import com.shuppa.data.model.Category;
+import com.shuppa.data.model.Deal;
+import com.shuppa.data.model.ProductSlider;
+import com.shuppa.ui.search.SearchActivity;
+import com.shuppa.utils.Globals;
+import com.shuppa.viewholders.CategoryViewHolder;
 
 import java.util.Objects;
 

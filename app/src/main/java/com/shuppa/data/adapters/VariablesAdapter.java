@@ -1,4 +1,4 @@
-package com.verityfoods.data.adapters;
+package com.shuppa.data.adapters;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -10,13 +10,13 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.verityfoods.R;
-import com.verityfoods.data.model.Cart;
-import com.verityfoods.data.model.Product;
-import com.verityfoods.data.model.Variable;
-import com.verityfoods.utils.AppUtils;
-import com.verityfoods.viewholders.ProductViewHolder;
-import com.verityfoods.viewholders.VariableViewHolder;
+import com.shuppa.R;
+import com.shuppa.data.model.Cart;
+import com.shuppa.data.model.Product;
+import com.shuppa.data.model.Variable;
+import com.shuppa.utils.AppUtils;
+import com.shuppa.viewholders.ProductViewHolder;
+import com.shuppa.viewholders.VariableViewHolder;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.verityfoods.ui.brands;
+package com.shuppa.ui.brands;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -25,18 +25,18 @@ import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.verityfoods.MainActivity;
-import com.verityfoods.R;
-import com.verityfoods.data.model.Cart;
-import com.verityfoods.data.model.Category;
-import com.verityfoods.data.model.Product;
-import com.verityfoods.data.model.Variable;
-import com.verityfoods.ui.bottomviews.shop.ShopViewModel;
-import com.verityfoods.utils.AppUtils;
-import com.verityfoods.utils.Globals;
-import com.verityfoods.utils.Vars;
-import com.verityfoods.viewholders.ProductViewHolder;
-import com.verityfoods.viewholders.VariableViewHolder;
+import com.shuppa.MainActivity;
+import com.shuppa.R;
+import com.shuppa.data.model.Cart;
+import com.shuppa.data.model.Category;
+import com.shuppa.data.model.Product;
+import com.shuppa.data.model.Variable;
+import com.shuppa.ui.bottomviews.shop.ShopViewModel;
+import com.shuppa.utils.AppUtils;
+import com.shuppa.utils.Globals;
+import com.shuppa.utils.Vars;
+import com.shuppa.viewholders.ProductViewHolder;
+import com.shuppa.viewholders.VariableViewHolder;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.verityfoods.ui.orders;
+package com.shuppa.ui.orders;
 
 import android.os.Bundle;
 
@@ -11,15 +11,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.verityfoods.R;
-import com.verityfoods.data.adapters.OrderItemsAdapter;
-import com.verityfoods.data.model.Cart;
-import com.verityfoods.data.model.Category;
-import com.verityfoods.data.model.Order;
-import com.verityfoods.data.model.User;
-import com.verityfoods.utils.AppUtils;
-import com.verityfoods.utils.Globals;
-import com.verityfoods.utils.Vars;
+import com.shuppa.R;
+import com.shuppa.data.adapters.OrderItemsAdapter;
+import com.shuppa.data.model.Cart;
+import com.shuppa.data.model.Category;
+import com.shuppa.data.model.Order;
+import com.shuppa.data.model.User;
+import com.shuppa.utils.AppUtils;
+import com.shuppa.utils.Globals;
+import com.shuppa.utils.Vars;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.verityfoods.data.model;
+package com.shuppa.data.model;
 
 public class Deal {
     private String uuid;
