@@ -1,6 +1,7 @@
-package com.shuppa.data.adapters;
+package com.verityfoods.data.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,8 +12,8 @@ import android.widget.Toast;
 import androidx.appcompat.widget.SearchView;
 import androidx.cursoradapter.widget.CursorAdapter;
 
-import com.shuppa.R;
-import com.shuppa.data.model.Product;
+import com.verityfoods.R;
+import com.verityfoods.data.model.Product;
 
 import java.util.ArrayList;
 

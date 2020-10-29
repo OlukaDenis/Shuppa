@@ -1,4 +1,4 @@
-package com.shuppa.ui.bottomviews.offers;
+package com.verityfoods.ui.bottomviews.offers;
 
 import androidx.lifecycle.ViewModel;
 

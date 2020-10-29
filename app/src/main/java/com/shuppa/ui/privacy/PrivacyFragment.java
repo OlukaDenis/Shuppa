@@ -1,4 +1,4 @@
-package com.shuppa.ui.privacy;
+package com.verityfoods.ui.privacy;
 
 import android.os.Bundle;
 
@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.shuppa.R;
+import com.verityfoods.R;
 
 public class PrivacyFragment extends Fragment {
 

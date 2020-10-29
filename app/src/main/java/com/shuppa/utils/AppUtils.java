@@ -1,4 +1,4 @@
-package com.shuppa.utils;
+package com.verityfoods.utils;
 
 import java.text.DateFormat;
 import java.text.DecimalFormat;

@@ -1,4 +1,4 @@
-package com.shuppa.ui.about;
+package com.verityfoods.ui.about;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.shuppa.R;
+import com.verityfoods.R;
 
 public class AboutFragment extends Fragment {
 

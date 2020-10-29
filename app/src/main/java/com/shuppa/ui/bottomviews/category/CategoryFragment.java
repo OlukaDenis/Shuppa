@@ -1,30 +1,37 @@
-package com.shuppa.ui.bottomviews.category;
+package com.verityfoods.ui.bottomviews.category;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.paging.PagedList;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.firebase.ui.firestore.paging.FirestorePagingAdapter;
 import com.firebase.ui.firestore.paging.FirestorePagingOptions;
 import com.firebase.ui.firestore.paging.LoadingState;
+import com.google.android.material.button.MaterialButton;
 import com.google.firebase.firestore.Query;
-import com.shuppa.R;
-import com.shuppa.data.model.Category;
-import com.shuppa.utils.Globals;
-import com.shuppa.utils.Vars;
-import com.shuppa.viewholders.CategoryViewHolder;
+import com.verityfoods.R;
+import com.verityfoods.data.model.Category;
+import com.verityfoods.utils.Globals;
+import com.verityfoods.utils.Vars;
+import com.verityfoods.viewholders.CategoryViewHolder;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -37,6 +44,9 @@ public class CategoryFragment extends Fragment {
     private GridLayoutManager gridLayoutManager;
     private NavController navController;
     private RecyclerView categoryRecycler;
+
+    @BindView(R.id.category_shimmer_container)
+    ShimmerFrameLayout categoryShimmerContainer;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -91,6 +101,7 @@ public class CategoryFragment extends Fragment {
                     bundle.putSerializable(Globals.CATEGORY_OBJ, model);
                     navController.navigate(R.id.navigation_products, bundle);
                 });
+                categoryShimmerContainer.setVisibility(View.GONE);
             }
 
             @NonNull
@@ -114,27 +125,39 @@ public class CategoryFragment extends Fragment {
                         break;
 
                     case LOADING_MORE:
-//                        mShimmerViewContainer.setVisibility(View.VISIBLE);
+                        categoryShimmerContainer.setVisibility(View.VISIBLE);
                         break;
 
                     case LOADED:
-//                        mShimmerViewContainer.setVisibility(View.GONE);
+                        categoryShimmerContainer.setVisibility(View.GONE);
                         notifyDataSetChanged();
                         break;
 
                     case ERROR:
                         Toast.makeText(requireActivity(), "Error", Toast.LENGTH_SHORT).show();
 
-//                        mShimmerViewContainer.setVisibility(View.GONE);
+                        categoryShimmerContainer.setVisibility(View.GONE);
                         break;
 
                     case FINISHED:
-//                        mShimmerViewContainer.setVisibility(View.GONE);
+                        categoryShimmerContainer.setVisibility(View.GONE);
                         break;
                 }
             }
         };
         categoryRecycler.setAdapter(adapter);
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        categoryShimmerContainer.startShimmer();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        categoryShimmerContainer.stopShimmer();
     }
 }

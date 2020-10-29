@@ -1,4 +1,4 @@
-package com.shuppa.data.adapters;
+package com.verityfoods.data.adapters;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,9 +11,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.shuppa.R;
-import com.shuppa.ui.search.BrandSearchResults;
-import com.shuppa.utils.Globals;
+import com.verityfoods.R;
+import com.verityfoods.ui.search.BrandSearchResults;
+import com.verityfoods.utils.Globals;
 
 import java.util.List;
 

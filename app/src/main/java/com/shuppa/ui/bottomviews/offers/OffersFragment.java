@@ -1,4 +1,4 @@
-package com.shuppa.ui.bottomviews.offers;
+package com.verityfoods.ui.bottomviews.offers;
 
 import android.os.Bundle;
 
@@ -17,18 +17,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.firebase.ui.firestore.paging.FirestorePagingAdapter;
 import com.firebase.ui.firestore.paging.FirestorePagingOptions;
 import com.firebase.ui.firestore.paging.LoadingState;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.Query;
-import com.shuppa.R;
-import com.shuppa.data.adapters.DealsAdapter;
-import com.shuppa.data.model.Deal;
-import com.shuppa.data.model.Product;
-import com.shuppa.utils.Globals;
-import com.shuppa.utils.Vars;
-import com.shuppa.viewholders.ProductViewHolder;
+import com.smarteist.autoimageslider.IndicatorAnimations;
+import com.smarteist.autoimageslider.SliderAnimations;
+import com.smarteist.autoimageslider.SliderView;
+import com.verityfoods.R;
+import com.verityfoods.data.adapters.DealSliderAdapter;
+import com.verityfoods.data.model.Deal;
+import com.verityfoods.data.model.Product;
+import com.verityfoods.utils.Globals;
+import com.verityfoods.utils.Vars;
+import com.verityfoods.viewholders.ProductViewHolder;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,7 +42,10 @@ import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import static com.shuppa.utils.Globals.MAX_LIST_SIZE;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+import static com.verityfoods.utils.Globals.MAX_LIST_SIZE;
 
 public class OffersFragment extends Fragment {
     private static final String TAG = "OffersFragment";
@@ -53,13 +60,14 @@ public class OffersFragment extends Fragment {
 
     private Map<String, Object> cartPath;
 
-    private Timer dealsTimer;
-    private TimerTask dealsTimerTask;
-    private int dealsPosition;
-    private LinearLayoutManager dealsLayoutManager;
-    private RecyclerView dealsRecycler;
-    private List<Deal> deals;
-    private DealsAdapter dealsAdapter;
+    @BindView(R.id.dealSlider)
+    SliderView dealSlider;
+
+    @BindView(R.id.product_shimmer_container)
+    ShimmerFrameLayout productShimmerContainer;
+
+    private DealSliderAdapter dealAdapter;
+
 
     public OffersFragment() {
     }
@@ -68,7 +76,7 @@ public class OffersFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_offers, container, false);
-
+        ButterKnife.bind(this, root);
         vars = new Vars(requireActivity());
 
         layoutManager = new LinearLayoutManager(requireActivity());
@@ -84,41 +92,19 @@ public class OffersFragment extends Fragment {
         cartPath = new HashMap<>();
         cartPath.put("name", "Cart");
 
-        deals = new ArrayList<>();
-        //Deals slider
-        dealsRecycler = root.findViewById(R.id.deals_slider);
-        dealsLayoutManager = new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false);
-        dealsRecycler.setLayoutManager(dealsLayoutManager);
-        populateDeals();//populate sliders
-
-        if (deals != null) {
-            dealsPosition = MAX_LIST_SIZE / 2;
-            dealsRecycler.scrollToPosition(dealsPosition);
-        }
-
-        SnapHelper dealHelper = new LinearSnapHelper();
-        dealHelper.attachToRecyclerView(dealsRecycler);
-        dealsRecycler.smoothScrollBy(5, 0);
-
-        dealsRecycler.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-
-                if (newState == 1) {
-                    stopAutoScrollDeals();
-                } else if (newState == 0) {
-                    dealsPosition = dealsLayoutManager.findFirstCompletelyVisibleItemPosition();
-                    runAutoScrollDeals();
-                }
-            }
-        });
+        dealAdapter = new DealSliderAdapter(vars, requireActivity());
 
         populateProducts();
+        populateDeals();
         return root;
     }
 
     private void populateDeals() {
+        dealSlider.startAutoCycle();
+        dealSlider.setIndicatorAnimation(IndicatorAnimations.WORM);
+        dealSlider.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION);
+        dealSlider.setScrollTimeInSec(4);
+
         vars.verityApp.db
                 .collection(Globals.DEALS)
                 .get()
@@ -126,47 +112,16 @@ public class OffersFragment extends Fragment {
                     if (task.isSuccessful()) {
                         for (DocumentSnapshot snapshot : Objects.requireNonNull(task.getResult())) {
                             Deal mDeal = snapshot.toObject(Deal.class);
-                            Log.d(TAG, "populateDeals: "+ mDeal.getImage());
-                            deals.add(mDeal);
+                            dealAdapter.addItem(mDeal);
                         }
-
-                        dealsAdapter = new DealsAdapter(requireActivity(), deals);
-                        dealsRecycler.setAdapter(dealsAdapter);
                     }
                 })
                 .addOnFailureListener(e -> {
                     Log.e(TAG, "populateDeals: ", e);
                 });
-    }
 
-    private void stopAutoScrollDeals() {
-        if (dealsTimer != null && dealsTimerTask != null) {
-            dealsTimerTask.cancel();
-            dealsTimer.cancel();
-            dealsTimer = null;
-            dealsTimerTask = null;
-            dealsPosition = dealsLayoutManager.findFirstCompletelyVisibleItemPosition();
-        }
-    }
-
-    private void runAutoScrollDeals() {
-        if (dealsTimer == null && dealsTimerTask == null) {
-            dealsTimer = new Timer();
-            dealsTimerTask = new TimerTask() {
-                @Override
-                public void run() {
-                    if (dealsPosition == MAX_LIST_SIZE) {
-                        dealsPosition = MAX_LIST_SIZE / 2;
-                        dealsRecycler.scrollToPosition(dealsPosition);
-                        dealsRecycler.smoothScrollBy(5, 0);
-                    } else {
-                        dealsPosition++;
-                        dealsRecycler.smoothScrollToPosition(dealsPosition);
-                    }
-                }
-            };
-            dealsTimer.schedule(dealsTimerTask, 5000, 5000);
-        }
+        dealSlider.setSliderAdapter(dealAdapter);
+        dealAdapter.notifyDataSetChanged();
     }
 
     private void populateProducts() {
@@ -190,6 +145,7 @@ public class OffersFragment extends Fragment {
             @Override
             protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull Product model) {
                 holder.bindProduct(model);
+                productShimmerContainer.setVisibility(View.GONE);
             }
 
             @NonNull
@@ -213,22 +169,22 @@ public class OffersFragment extends Fragment {
                         break;
 
                     case LOADING_MORE:
-//                        mShimmerViewContainer.setVisibility(View.VISIBLE);
+                        productShimmerContainer.setVisibility(View.VISIBLE);
                         break;
 
                     case LOADED:
-//                        mShimmerViewContainer.setVisibility(View.GONE);
+                        productShimmerContainer.setVisibility(View.GONE);
                         notifyDataSetChanged();
                         break;
 
                     case ERROR:
                         Toast.makeText(requireActivity(), "Error", Toast.LENGTH_SHORT).show();
 
-//                        mShimmerViewContainer.setVisibility(View.GONE);
+                        productShimmerContainer.setVisibility(View.GONE);
                         break;
 
                     case FINISHED:
-//                        mShimmerViewContainer.setVisibility(View.GONE);
+                        productShimmerContainer.setVisibility(View.GONE);
                         break;
                 }
             }
@@ -241,13 +197,22 @@ public class OffersFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        runAutoScrollDeals();
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        stopAutoScrollDeals();
-        MAX_LIST_SIZE = 10;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        productShimmerContainer.startShimmer();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        productShimmerContainer.stopShimmer();
     }
 }

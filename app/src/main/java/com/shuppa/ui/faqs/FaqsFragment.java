@@ -1,4 +1,4 @@
-package com.shuppa.ui.faqs;
+package com.verityfoods.ui.faqs;
 
 import android.os.Bundle;
 
@@ -10,8 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.shuppa.R;
-import com.shuppa.utils.Vars;
+import com.verityfoods.R;
+import com.verityfoods.utils.Vars;
 
 public class FaqsFragment extends Fragment {
     private Vars vars;

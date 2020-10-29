@@ -1,4 +1,4 @@
-package com.shuppa.ui.bottomviews.home;
+package com.verityfoods.ui.bottomviews.home;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

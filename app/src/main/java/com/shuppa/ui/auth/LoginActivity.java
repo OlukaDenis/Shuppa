@@ -1,4 +1,4 @@
-package com.shuppa.ui.auth;
+package com.verityfoods.ui.auth;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.shuppa.MainActivity;
-import com.shuppa.R;
+import com.verityfoods.MainActivity;
+import com.verityfoods.R;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;

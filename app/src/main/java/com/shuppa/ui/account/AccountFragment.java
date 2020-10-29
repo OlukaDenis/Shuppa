@@ -1,4 +1,4 @@
-package com.shuppa.ui.account;
+package com.verityfoods.ui.account;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -9,12 +9,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseUser;
@@ -24,12 +28,11 @@ import com.google.firebase.storage.UploadTask;
 import com.linchaolong.android.imagepicker.ImagePicker;
 import com.linchaolong.android.imagepicker.cropper.CropImage;
 import com.linchaolong.android.imagepicker.cropper.CropImageView;
-import com.squareup.picasso.Picasso;
-import com.shuppa.R;
-import com.shuppa.data.model.User;
-import com.shuppa.ui.auth.SignupActivity;
-import com.shuppa.utils.Globals;
-import com.shuppa.utils.Vars;
+import com.verityfoods.R;
+import com.verityfoods.data.model.User;
+import com.verityfoods.ui.auth.SignupActivity;
+import com.verityfoods.utils.Globals;
+import com.verityfoods.utils.Vars;
 
 import java.io.File;
 import java.util.Date;
@@ -105,10 +108,13 @@ public class AccountFragment extends Fragment {
         address.setText(user.getAddress());
 
         if (!user.getEmail().isEmpty() || user.getEmail() != null) {
-            Picasso.get()
+
+            Glide.with(requireActivity())
                     .load(user.getImage())
-                    .placeholder(R.drawable.avatar)
-                    .error(R.drawable.avatar)
+                    .centerCrop()
+                    .circleCrop()
+                    .error(R.drawable.ic_baseline_image_24)
+                    .placeholder(R.drawable.ic_baseline_image_24)
                     .into(profileImageView);
         } else {
 
@@ -213,10 +219,12 @@ public class AccountFragment extends Fragment {
         progressBar.setVisibility(View.VISIBLE);
         profileImageView.setImageURI(imageuri);
 
-        Picasso.get()
+        Glide.with(requireActivity())
                 .load(imageuri)
-                .error(R.drawable.avatar)
-                .placeholder(R.drawable.avatar)
+                .centerCrop()
+                .circleCrop()
+                .error(R.drawable.ic_baseline_image_24)
+                .placeholder(R.drawable.ic_baseline_image_24)
                 .into(profileImageView);
 
         // Create a storage reference from our app

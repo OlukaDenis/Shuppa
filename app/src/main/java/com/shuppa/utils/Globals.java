@@ -1,4 +1,4 @@
-package com.shuppa.utils;
+package com.verityfoods.utils;
 
 public class Globals {
 

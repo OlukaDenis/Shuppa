@@ -1,4 +1,4 @@
-package com.shuppa.data.model;
+package com.verityfoods.data.model;
 
 public class Coupon {
     private String Uuid;

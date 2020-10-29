@@ -1,11 +1,11 @@
-package com.shuppa.utils;
+package com.verityfoods.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 
-import com.shuppa.VerityApp;
-import com.shuppa.data.model.User;
+import com.verityfoods.VerityApp;
+import com.verityfoods.data.model.User;
 
 import java.util.Objects;
 import java.util.UUID;

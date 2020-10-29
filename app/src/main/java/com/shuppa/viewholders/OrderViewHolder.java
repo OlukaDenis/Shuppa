@@ -1,4 +1,4 @@
-package com.shuppa.viewholders;
+package com.verityfoods.viewholders;
 
 import android.util.Log;
 import android.view.View;
@@ -7,10 +7,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.shuppa.R;
-import com.shuppa.data.interfaces.CustomItemClickListener;
-import com.shuppa.data.model.Order;
-import com.shuppa.utils.AppUtils;
+import com.verityfoods.R;
+import com.verityfoods.data.interfaces.CustomItemClickListener;
+import com.verityfoods.data.model.Order;
+import com.verityfoods.utils.AppUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

@@ -1,4 +1,4 @@
-package com.shuppa.ui.bottomviews.basket;
+package com.verityfoods.ui.bottomviews.basket;
 
 import androidx.lifecycle.ViewModel;
 

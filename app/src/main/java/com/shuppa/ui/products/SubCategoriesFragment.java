@@ -1,10 +1,12 @@
-package com.shuppa.ui.products;
+package com.verityfoods.ui.products;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
 import androidx.paging.PagedList;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,14 +20,27 @@ import android.widget.Toast;
 import com.firebase.ui.firestore.paging.FirestorePagingAdapter;
 import com.firebase.ui.firestore.paging.FirestorePagingOptions;
 import com.firebase.ui.firestore.paging.LoadingState;
+import com.google.android.material.badge.BadgeDrawable;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.Query;
-import com.shuppa.MainActivity;
-import com.shuppa.R;
-import com.shuppa.data.model.Product;
-import com.shuppa.data.model.SubCategory;
-import com.shuppa.utils.Globals;
-import com.shuppa.utils.Vars;
-import com.shuppa.viewholders.ProductViewHolder;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.verityfoods.MainActivity;
+import com.verityfoods.R;
+import com.verityfoods.data.model.Cart;
+import com.verityfoods.data.model.Category;
+import com.verityfoods.data.model.Product;
+import com.verityfoods.data.model.SubCategory;
+import com.verityfoods.data.model.Variable;
+import com.verityfoods.utils.AppUtils;
+import com.verityfoods.utils.Globals;
+import com.verityfoods.utils.Vars;
+import com.verityfoods.viewholders.ProductViewHolder;
+import com.verityfoods.viewholders.SubCategoryViewHolder;
+import com.verityfoods.viewholders.VariableViewHolder;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class SubCategoriesFragment extends Fragment {
     private static final String TAG = "SubCategoriesFragment";

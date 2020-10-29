@@ -1,6 +1,8 @@
-package com.shuppa.data.adapters;
+package com.verityfoods.data.adapters;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,13 +10,13 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.shuppa.R;
-import com.shuppa.data.model.Cart;
-import com.shuppa.data.model.Product;
-import com.shuppa.data.model.Variable;
-import com.shuppa.utils.AppUtils;
-import com.shuppa.viewholders.ProductViewHolder;
-import com.shuppa.viewholders.VariableViewHolder;
+import com.verityfoods.R;
+import com.verityfoods.data.model.Cart;
+import com.verityfoods.data.model.Product;
+import com.verityfoods.data.model.Variable;
+import com.verityfoods.utils.AppUtils;
+import com.verityfoods.viewholders.ProductViewHolder;
+import com.verityfoods.viewholders.VariableViewHolder;
 
 import java.util.List;
 
@@ -24,6 +26,7 @@ public class VariablesAdapter extends RecyclerView.Adapter<VariableViewHolder> {
     private Activity activity;
     private int index = -1;
     private int modifiedAmount;
+    private int modifiedMRP;
     private ProductViewHolder productViewHolder;
     private Product product;
 
@@ -70,7 +73,7 @@ public class VariablesAdapter extends RecyclerView.Adapter<VariableViewHolder> {
                         product.getUuid(),
                         product.getName(),
                         product.getImage(),
-                        product.getMrp() * productViewHolder.value,
+                        modifiedMRP * productViewHolder.value,
                         productViewHolder.value,
                         mAmount
                 );
@@ -97,10 +100,14 @@ public class VariablesAdapter extends RecyclerView.Adapter<VariableViewHolder> {
             int m = (int) actual;
             //update the amount
             modifiedAmount = (int) actual;
+            modifiedMRP = model.getMrp();
             productViewHolder.productPrice.setText(AppUtils.formatCurrency(m));
+            productViewHolder.productMRP.setText(AppUtils.formatCurrency(model.getMrp()));
         } else {
             productViewHolder.productPrice.setText(AppUtils.formatCurrency(model.getPrice()));
+            productViewHolder.productMRP.setText(AppUtils.formatCurrency(model.getMrp()));
             modifiedAmount = model.getPrice();
+            modifiedMRP = model.getMrp();
         }
     }
 

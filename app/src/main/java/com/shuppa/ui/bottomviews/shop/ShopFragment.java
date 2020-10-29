@@ -1,4 +1,4 @@
-package com.shuppa.ui.bottomviews.shop;
+package com.verityfoods.ui.bottomviews.shop;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -14,18 +14,22 @@ import androidx.paging.PagedList;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.firebase.ui.firestore.paging.FirestorePagingAdapter;
 import com.firebase.ui.firestore.paging.FirestorePagingOptions;
 import com.firebase.ui.firestore.paging.LoadingState;
 import com.google.firebase.firestore.Query;
-import com.shuppa.R;
-import com.shuppa.data.model.Product;
-import com.shuppa.utils.Globals;
-import com.shuppa.utils.Vars;
-import com.shuppa.viewholders.ProductViewHolder;
+import com.verityfoods.R;
+import com.verityfoods.data.model.Product;
+import com.verityfoods.utils.Globals;
+import com.verityfoods.utils.Vars;
+import com.verityfoods.viewholders.ProductViewHolder;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class ShopFragment extends Fragment {
     private static final String TAG = "ShopFragment";
@@ -38,12 +42,16 @@ public class ShopFragment extends Fragment {
     private ShopViewModel shopViewModel;
     private Map<String, Object> cartPath;
 
+    @BindView(R.id.product_shimmer_container)
+    ShimmerFrameLayout productShimmerContainer;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         shopViewModel =  ViewModelProviders.of(this).get(ShopViewModel.class);
         View root = inflater.inflate(R.layout.fragment_shop, container, false);
 
         vars = new Vars(requireActivity());
+        ButterKnife.bind(this, root);
 
         layoutManager = new LinearLayoutManager(requireActivity());
         productRecycler = root.findViewById(R.id.products_recycler);
@@ -82,6 +90,8 @@ public class ShopFragment extends Fragment {
             @Override
             protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull Product model) {
                 holder.bindProduct(model);
+
+                productShimmerContainer.setVisibility(View.GONE);
             }
 
             @NonNull
@@ -105,27 +115,39 @@ public class ShopFragment extends Fragment {
                         break;
 
                     case LOADING_MORE:
-//                        mShimmerViewContainer.setVisibility(View.VISIBLE);
+                        productShimmerContainer.setVisibility(View.VISIBLE);
                         break;
 
                     case LOADED:
-//                        mShimmerViewContainer.setVisibility(View.GONE);
+                        productShimmerContainer.setVisibility(View.GONE);
                         notifyDataSetChanged();
                         break;
 
                     case ERROR:
                         Toast.makeText(requireActivity(), "Error", Toast.LENGTH_SHORT).show();
 
-//                        mShimmerViewContainer.setVisibility(View.GONE);
+                        productShimmerContainer.setVisibility(View.GONE);
                         break;
 
                     case FINISHED:
-//                        mShimmerViewContainer.setVisibility(View.GONE);
+                        productShimmerContainer.setVisibility(View.GONE);
                         break;
                 }
             }
         };
         productRecycler.setAdapter(adapter);
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        productShimmerContainer.startShimmer();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        productShimmerContainer.stopShimmer();
     }
 }

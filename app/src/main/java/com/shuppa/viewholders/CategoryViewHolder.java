@@ -1,4 +1,4 @@
-package com.shuppa.viewholders;
+package com.verityfoods.viewholders;
 
 import android.content.Context;
 import android.view.View;
@@ -8,10 +8,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.squareup.picasso.Picasso;
-import com.shuppa.R;
-import com.shuppa.data.interfaces.CustomItemClickListener;
-import com.shuppa.data.model.Category;
+import com.bumptech.glide.Glide;
+import com.verityfoods.R;
+import com.verityfoods.data.interfaces.CustomItemClickListener;
+import com.verityfoods.data.model.Category;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -35,17 +35,20 @@ public class CategoryViewHolder extends RecyclerView.ViewHolder implements View.
     public void bindCategory(Category category) {
         categoryName.setText(category.getName());
 
-        Picasso.get()
-                .load(category.getImage())
-                .error(R.drawable.ic_baseline_image_24)
-                .placeholder(R.drawable.ic_baseline_image_24)
-                .into(categoryImage);
-
-//        categoryImage.setOnClickListener(view -> {
-//            Intent productIntent = new Intent(context, ProductsActivity.class);
-//            productIntent.putExtra(Globals.CATEGORY_OBJ, category.getUuid());
-//            context.startActivity(productIntent);
-//        });
+        if (category.getName().isEmpty()) {
+            Glide.with(context)
+                    .load(R.drawable.ic_baseline_image_24)
+                    .centerCrop()
+                    .placeholder(R.drawable.ic_baseline_image_24)
+                    .into(categoryImage);
+        } else {
+            Glide.with(context)
+                    .load(category.getImage())
+                    .centerCrop()
+                    .placeholder(R.drawable.ic_baseline_image_24)
+                    .error(R.drawable.ic_baseline_image_24)
+                    .into(categoryImage);
+        }
     }
 
     public void setItemClickListener(CustomItemClickListener itemClickListener) {

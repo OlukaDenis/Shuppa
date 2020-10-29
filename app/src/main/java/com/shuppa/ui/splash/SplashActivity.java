@@ -1,4 +1,4 @@
-package com.shuppa.ui.splash;
+package com.verityfoods.ui.splash;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,13 +6,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.shuppa.MainActivity;
-import com.shuppa.R;
-import com.shuppa.data.model.User;
-import com.shuppa.utils.Globals;
-import com.shuppa.utils.Vars;
+import com.verityfoods.MainActivity;
+import com.verityfoods.R;
+import com.verityfoods.data.model.User;
+import com.verityfoods.ui.auth.AuthChooser;
+import com.verityfoods.utils.Globals;
+import com.verityfoods.utils.Vars;
 
-import static com.shuppa.utils.Globals.SPLASH_TIMEOUT;
+import static com.verityfoods.utils.Globals.SPLASH_TIMEOUT;
 
 public class SplashActivity extends AppCompatActivity {
     private Vars vars;

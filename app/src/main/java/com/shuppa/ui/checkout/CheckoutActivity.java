@@ -1,9 +1,12 @@
-package com.shuppa.ui.checkout;
+package com.verityfoods.ui.checkout;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -33,15 +36,15 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.shuppa.MainActivity;
-import com.shuppa.R;
-import com.shuppa.data.model.Cart;
-import com.shuppa.data.model.Coupon;
-import com.shuppa.data.model.Order;
-import com.shuppa.data.model.User;
-import com.shuppa.utils.AppUtils;
-import com.shuppa.utils.Globals;
-import com.shuppa.utils.Vars;
+import com.verityfoods.MainActivity;
+import com.verityfoods.R;
+import com.verityfoods.data.model.Cart;
+import com.verityfoods.data.model.Coupon;
+import com.verityfoods.data.model.Order;
+import com.verityfoods.data.model.User;
+import com.verityfoods.utils.AppUtils;
+import com.verityfoods.utils.Globals;
+import com.verityfoods.utils.Vars;
 
 import java.util.ArrayList;
 import java.util.Arrays;

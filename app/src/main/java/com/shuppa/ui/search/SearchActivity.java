@@ -1,12 +1,14 @@
-package com.shuppa.ui.search;
+package com.verityfoods.ui.search;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.paging.PagedList;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,22 +17,36 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.firebase.ui.firestore.paging.FirestorePagingAdapter;
+import com.firebase.ui.firestore.paging.FirestorePagingOptions;
+import com.firebase.ui.firestore.paging.LoadingState;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.shuppa.R;
-import com.shuppa.data.adapters.BrandSearchAdapter;
-import com.shuppa.data.model.Product;
-import com.shuppa.utils.Globals;
-import com.shuppa.utils.Vars;
-import com.shuppa.viewholders.ProductViewHolder;
+import com.verityfoods.R;
+import com.verityfoods.data.adapters.BrandSearchAdapter;
+import com.verityfoods.data.model.Cart;
+import com.verityfoods.data.model.Product;
+import com.verityfoods.data.model.Variable;
+import com.verityfoods.utils.AppUtils;
+import com.verityfoods.utils.Globals;
+import com.verityfoods.utils.Vars;
+import com.verityfoods.viewholders.ProductViewHolder;
+import com.verityfoods.viewholders.VariableViewHolder;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class SearchActivity extends AppCompatActivity {
     private static final String TAG = "SearchActivity";
@@ -48,16 +64,20 @@ public class SearchActivity extends AppCompatActivity {
     private List<String> brandSearchList;
     private static final String BRAND_FIELD = "brand";
 
+    @BindView(R.id.product_shimmer_container)
+    ShimmerFrameLayout productShimmerContainer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         vars = new Vars(this);
+        ButterKnife.bind(this);
 
         brandSearchList = new ArrayList<>();
 
         layoutManager = new LinearLayoutManager(this);
-        searchRecycler = findViewById(R.id.product_search_recycler);
+        searchRecycler = findViewById(R.id.products_recycler);
         searchRecycler.setLayoutManager(layoutManager);
 
         brandSearchRecycler = findViewById(R.id.brand_search_recycler);
@@ -161,6 +181,7 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull Product model) {
                 holder.bindProduct(model);
+                productShimmerContainer.setVisibility(View.GONE);
             }
 
             @NonNull
@@ -187,5 +208,17 @@ public class SearchActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        productShimmerContainer.startShimmer();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        productShimmerContainer.stopShimmer();
     }
 }

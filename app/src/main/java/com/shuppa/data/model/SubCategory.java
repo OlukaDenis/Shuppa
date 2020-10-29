@@ -1,4 +1,4 @@
-package com.shuppa.data.model;
+package com.verityfoods.data.model;
 
 import java.io.Serializable;
 

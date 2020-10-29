@@ -1,4 +1,4 @@
-package com.shuppa.data.model;
+package com.verityfoods.data.model;
 
 public class User {
     private String userID;

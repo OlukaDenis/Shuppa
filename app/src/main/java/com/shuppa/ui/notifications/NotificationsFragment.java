@@ -1,4 +1,4 @@
-package com.shuppa.ui.notifications;
+package com.verityfoods.ui.notifications;
 
 import android.os.Bundle;
 
@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.shuppa.R;
+import com.verityfoods.R;
 
 public class NotificationsFragment extends Fragment {
 
