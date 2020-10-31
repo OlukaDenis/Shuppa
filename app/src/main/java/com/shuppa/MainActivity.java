@@ -21,12 +21,12 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.shuppa.utils.Globals;
 import com.shuppa.utils.Vars;
-import com.verityfoods.data.local.LocalDataSource;
-import com.verityfoods.data.model.Brand;
-import com.verityfoods.data.model.Product;
-import com.verityfoods.data.model.User;
-import com.verityfoods.ui.auth.SignupActivity;
-import com.verityfoods.ui.search.SearchActivity;
+import com.shuppa.data.local.LocalDataSource;
+import com.shuppa.data.model.Brand;
+import com.shuppa.data.model.Product;
+import com.shuppa.data.model.User;
+import com.shuppa.ui.auth.SignupActivity;
+import com.shuppa.ui.search.SearchActivity;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements
     private void shareApp() {
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.setType("text/plain");
-        shareIntent.putExtra(Intent.EXTRA_TEXT, "http://www.verityfoods.com");
+        shareIntent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=com.shuppa");
         startActivity(Intent.createChooser(shareIntent, "Share with"));
     }
 

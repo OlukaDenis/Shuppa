@@ -1,185 +1,182 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:weightSum="10">
 
-        <ImageView
-            android:id="@+id/s_logo"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/shuppa" />
+            android:layout_height="0dp"
+            android:background="@color/colorPrimary"
+            android:layout_weight="4" >
+
+            <ImageView
+                android:id="@+id/s_logo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/shuppa" />
+        </LinearLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:layout_gravity="center"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp">
+            android:layout_weight="6"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
+            android:background="@color/white">
 
 
-            <RelativeLayout
-                android:id="@+id/llout"
+            <LinearLayout
+                android:id="@+id/step_phone"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="50dp"
+                android:orientation="horizontal"
+                android:visibility="visible"
+                android:weightSum="10">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:enabled="false"
+                    android:layout_weight="2">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/textInputStyle"
+                        android:enabled="false"
+                        android:hint="+256"
+                        android:inputType="number" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/phone_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_weight="8">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/signup_phone"
+                        style="@style/textInputStyle"
+                        android:hint="@string/enter_your_phone_number"
+                        android:inputType="numberSigned"
+                        android:maxLength="9" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/step_code"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="50dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/enter_the_code_that_has_been_sent_via_sms"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/code_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/code"
+                        style="@style/textInputStyle"
+                        android:hint="@string/enter_code"
+                        android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/step_info"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context=".ui.auth.SignupActivity">
+                android:layout_marginTop="30dp"
+                android:orientation="vertical"
+                android:visibility="gone">
 
-                <LinearLayout
-                    android:id="@+id/step_phone"
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_marginTop="50dp"
-                    android:orientation="horizontal"
-                    android:visibility="visible"
-                    android:weightSum="10"
-                    android:layout_below="@id/s_logo">
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/enter_details"
+                    android:textColor="@color/colorPrimaryDark" />
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:enabled="false"
-                        android:layout_weight="2">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            style="@style/textInputStyle"
-                            android:enabled="false"
-                            android:hint="+256"
-                            android:inputType="number" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/phone_layout"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:layout_weight="8">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/signup_phone"
-                            style="@style/textInputStyle"
-                            android:hint="@string/enter_your_phone_number"
-                            android:inputType="numberSigned"
-                            android:maxLength="9" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/step_code"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/name_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_below="@id/s_logo"
-                    android:layout_marginTop="50dp"
-                    android:orientation="vertical"
-                    android:visibility="gone">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="@string/enter_the_code_that_has_been_sent_via_sms"
-                        android:textColor="@color/colorPrimaryDark" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/name"
+                        style="@style/textInputStyle"
+                        android:hint="@string/name"
+                        android:inputType="textCapWords" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/code_layout"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/code"
-                            style="@style/textInputStyle"
-                            android:hint="@string/enter_code"
-                            android:inputType="number" />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/step_info"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/email_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_below="@id/s_logo"
-                    android:layout_marginTop="30dp"
-                    android:orientation="vertical"
-                    android:visibility="gone">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="@string/enter_details"
-                        android:textColor="@color/colorPrimaryDark" />
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/name_layout"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/name"
-                            style="@style/textInputStyle"
-                            android:hint="@string/name"
-                            android:inputType="textCapWords" />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/email_layout"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/email"
-                            style="@style/textInputStyle"
-                            android:hint="@string/email"
-                            android:inputType="textEmailAddress" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/email"
+                        style="@style/textInputStyle"
+                        android:hint="@string/email"
+                        android:inputType="textEmailAddress" />
+                </com.google.android.material.textfield.TextInputLayout>
 
 
-                    <TextView
-                        android:id="@+id/location"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="16dp"
-                        android:background="@drawable/pick_address_bng"
-                        android:drawableEnd="@drawable/ic_keyboard_arrow_down"
-                        android:ellipsize="end"
-                        android:hint="@string/your_address"
-                        android:maxLines="1"
-                        android:textColorHint="@color/blackish"
-                        android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/pick_address_bng"
+                    android:drawableEnd="@drawable/ic_keyboard_arrow_down"
+                    android:ellipsize="end"
+                    android:hint="@string/your_address"
+                    android:maxLines="1"
+                    android:textColorHint="@color/blackish"
+                    android:textSize="16sp" />
 
-                </LinearLayout>
-
-
-            </RelativeLayout>
+            </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/signup_btn"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_below="@id/llout"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
                 android:layout_alignParentBottom="true"
-                android:layout_marginTop="36dp"
+                android:layout_marginTop="60dp"
                 android:text="@string/continue_next"
                 android:textAllCaps="true" />
         </RelativeLayout>
