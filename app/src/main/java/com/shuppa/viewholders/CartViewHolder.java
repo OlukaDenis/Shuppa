@@ -19,54 +19,60 @@ import com.shuppa.utils.AppUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class CartViewHolder extends RecyclerView.ViewHolder {
-    private static final String TAG = "CartViewHolder";
-    private LinearLayout plusMinusButton;
-    public TextView plusButton;
-    public TextView minusButton;
-    public TextView total;
+    public class CartViewHolder extends RecyclerView.ViewHolder {
+        private static final String TAG = "CartViewHolder";
+        private LinearLayout plusMinusButton;
+        public TextView plusButton;
+        public TextView minusButton;
+        public TextView total;
 
-    @BindView(R.id.cart_image)
-    ImageView cartImage;
+        @BindView(R.id.cart_image)
+        ImageView cartImage;
 
-    @BindView(R.id.cart_name)
-    TextView cartName;
+        @BindView(R.id.cart_name)
+        TextView cartName;
 
-    @BindView(R.id.cart_category)
-    TextView cartCategory;
+        @BindView(R.id.cart_pack)
+        TextView cartPack;
 
-    @BindView(R.id.cart_price)
-    TextView cartPrice;
+        @BindView(R.id.cart_category)
+        TextView cartCategory;
 
-    public ImageButton removeCart;
-    private Context context;
+        @BindView(R.id.cart_price)
+        TextView cartPrice;
 
-    public CartViewHolder(@NonNull View itemView, Context context) {
-        super(itemView);
-        this.context = context;
-        ButterKnife.bind(this, itemView);
-        plusButton = itemView.findViewById(R.id.plus_btn);
-        minusButton = itemView.findViewById(R.id.minus_btn);
-        total = itemView.findViewById(R.id.counter_total);
-        plusMinusButton = itemView.findViewById(R.id.plus_minus_button);
-        removeCart = itemView.findViewById(R.id.remove_cart);
+        public ImageButton removeCart;
+        private Context context;
+
+        public CartViewHolder(@NonNull View itemView, Context context) {
+            super(itemView);
+            this.context = context;
+            ButterKnife.bind(this, itemView);
+            plusButton = itemView.findViewById(R.id.plus_btn);
+            minusButton = itemView.findViewById(R.id.minus_btn);
+            total = itemView.findViewById(R.id.counter_total);
+            plusMinusButton = itemView.findViewById(R.id.plus_minus_button);
+            removeCart = itemView.findViewById(R.id.remove_cart);
+        }
+
+        public void bindCart(Cart cart) {
+            cartName.setText(cart.getProduct_name());
+            cartCategory.setText(cart.getCategory_name());
+            cartPrice.setText(AppUtils.formatCurrency(cart.getAmount()));
+            total.setText(String.valueOf(cart.getQuantity()));
+            if (cart.getPack() != null) {
+                cartPack.setText(cart.getPack());
+            }
+
+            Glide.with(context)
+                    .load(cart.getProduct_image())
+                    .centerCrop()
+                    .error(R.drawable.ic_baseline_image_24)
+                    .placeholder(R.drawable.ic_baseline_image_24)
+                    .into(cartImage);
+
+        }
+
+
     }
-
-    public void bindCart(Cart cart) {
-        cartName.setText(cart.getProduct_name());
-        cartCategory.setText(cart.getCategory_name());
-        cartPrice.setText(AppUtils.formatCurrency(cart.getAmount()));
-        total.setText(String.valueOf(cart.getQuantity()));
-
-        Glide.with(context)
-                .load(cart.getProduct_image())
-                .centerCrop()
-                .error(R.drawable.ic_baseline_image_24)
-                .placeholder(R.drawable.ic_baseline_image_24)
-                .into(cartImage);
-
-    }
-
-
-}
 

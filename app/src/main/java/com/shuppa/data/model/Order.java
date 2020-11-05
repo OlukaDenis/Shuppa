@@ -11,6 +11,7 @@ public class Order implements Serializable {
     private String paymentMethod;
     private String deliveryMethod;
     private String deliveryDay;
+    private Address address;
     private String deliveryTime;
     private int shippingFee;
     private int subTotal;
@@ -20,6 +21,14 @@ public class Order implements Serializable {
     private String status;
 
     public Order() {
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public String getUuid() {

@@ -9,6 +9,8 @@ public class Cart implements Serializable {
     private String product_name;
     private String product_image;
     private int mrp;
+    private boolean simple;
+    private String pack;
     private int quantity;
     private boolean completed;
     private int amount;
@@ -26,6 +28,22 @@ public class Cart implements Serializable {
         this.quantity = quantity;
         this.completed = false;
         this.amount = amount;
+    }
+
+    public String getPack() {
+        return pack;
+    }
+
+    public void setPack(String pack) {
+        this.pack = pack;
+    }
+
+    public boolean isSimple() {
+        return simple;
+    }
+
+    public void setSimple(boolean simple) {
+        this.simple = simple;
     }
 
     public String getCategory_id() {

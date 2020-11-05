@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:name="com.shuppa.VerityApp"
+        android:name=".VerityApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -15,23 +15,24 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.shuppa.ui.search.BrandSearchResults"></activity>
-        <activity android:name="com.shuppa.ui.checkout.SuccessActivity" />
+        <activity android:name=".ui.address.AddressActivity"></activity>
+        <activity android:name=".ui.search.BrandSearchResults" />
+        <activity android:name=".ui.checkout.SuccessActivity" />
         <activity
-            android:name="com.shuppa.ui.checkout.CheckoutActivity"
+            android:name=".ui.checkout.CheckoutActivity"
             android:label="Checkout" />
         <activity
-            android:name="com.shuppa.ui.search.SearchActivity"
+            android:name=".ui.search.SearchActivity"
             android:label="">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.shuppa.MainActivity" />
         </activity>
         <activity
-            android:name="com.shuppa.ui.auth.AuthChooser"
+            android:name=".ui.auth.AuthChooser"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.shuppa.ui.splash.SplashActivity"
+            android:name=".ui.splash.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,13 +41,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.shuppa.ui.auth.SignupActivity"
+            android:name=".ui.auth.SignupActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.shuppa.ui.auth.LoginActivity"
+            android:name=".ui.auth.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.shuppa.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

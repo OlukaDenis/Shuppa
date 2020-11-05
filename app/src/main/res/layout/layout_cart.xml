@@ -56,6 +56,14 @@
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimary"/>
 
+            <TextView
+                android:id="@+id/cart_pack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4 gms"
+                android:textSize="14sp"
+                android:textColor="@color/blackish"/>
+
 
                 <RelativeLayout
                     android:layout_width="match_parent"

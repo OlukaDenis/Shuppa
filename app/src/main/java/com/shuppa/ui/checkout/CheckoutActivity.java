@@ -8,6 +8,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -38,10 +39,12 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.shuppa.MainActivity;
 import com.shuppa.R;
+import com.shuppa.data.model.Address;
 import com.shuppa.data.model.Cart;
 import com.shuppa.data.model.Coupon;
 import com.shuppa.data.model.Order;
 import com.shuppa.data.model.User;
+import com.shuppa.ui.address.AddressActivity;
 import com.shuppa.utils.AppUtils;
 import com.shuppa.utils.Globals;
 import com.shuppa.utils.Vars;
@@ -60,15 +63,6 @@ import butterknife.OnClick;
 
 public class CheckoutActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener  {
     private static final String TAG = "CheckoutActivity";
-    private TextView totalSum;
-    private TextView changeAddress;
-    private User user;
-    private Vars vars;
-
-    private int total = 0;
-    private int subTotal = 0;
-    private int shipping = 0;
-
     //totals
     @BindView(R.id.sub_total)
     TextView textSubTotal;
@@ -114,6 +108,15 @@ public class CheckoutActivity extends AppCompatActivity implements CompoundButto
     @BindView(R.id.rg_payment_methods)
     RadioGroup paymentMethods;
 
+    private TextView totalSum;
+    private TextView changeAddress;
+    private User user;
+    private Vars vars;
+
+    private int total = 0;
+    private int subTotal = 0;
+    private int shipping = 0;
+
     private String deliveryMethod = "";
 
     private String userUid;
@@ -124,6 +127,8 @@ public class CheckoutActivity extends AppCompatActivity implements CompoundButto
     private int orderNumber;
     private ProgressDialog loading;
     private Order order;
+    private Address address;
+    private Address verityAddress;
     private List<Cart> cartList;
     private Cart cart;
 
@@ -150,6 +155,8 @@ public class CheckoutActivity extends AppCompatActivity implements CompoundButto
         vars = new Vars(this);
         order = new Order();
         cartList = new ArrayList<>();
+        address = new Address();
+        verityAddress = new Address();
 
         Random random = new Random();
         orderNumber = random.nextInt(1000000000);
@@ -201,9 +208,40 @@ public class CheckoutActivity extends AppCompatActivity implements CompoundButto
             }
         });
 
+        //populate the company address
+        verityAddress.setName("Shuppa");
+        verityAddress.setPhone("+256 773047940");
+        verityAddress.setAddress(this.getResources().getString(R.string.default_address));
+
         getAllCart();
         populateUserDetails();
         updateTotals(shipping);
+        getDefaultAddress();
+    }
+
+    private void getDefaultAddress() {
+        Log.d(TAG, "getDefaultAddress: called...");
+        vars.verityApp.db.collection(Globals.ADDRESS)
+                .document(userUid)
+                .collection(Globals.MY_ADDRESS)
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        for (QueryDocumentSnapshot document : Objects.requireNonNull(task.getResult())) {
+                            address = document.toObject(Address.class);
+                            if (address.isDefault()) {
+                                updateAddress(address);
+                            }
+                        }
+                    }
+                })
+                .addOnFailureListener(e -> Toast.makeText(getApplicationContext(), "No default addresses found", Toast.LENGTH_LONG));
+    }
+
+    private void updateAddress(Address address) {
+        addressName.setText(address.getAddress());
+        userName.setText(address.getName());
+        userPhone.setText(address.getPhone());
     }
 
     public void checkFieldIsExist(String key, String value, OnSuccessListener<Boolean> onSuccessListener) {
@@ -236,10 +274,10 @@ public class CheckoutActivity extends AppCompatActivity implements CompoundButto
                                         assert coupon != null;
                                         Log.d(TAG, "Id found: "+coupon.getValue());
                                         loading.dismiss();
-                                       total = total - coupon.getValue();
-                                       totalSum.setText(String.valueOf(total));
-                                       couponCode.setText("");
-                                       deleteCoupon(task.getResult().getId());
+                                        total = total - coupon.getValue();
+                                        totalSum.setText(String.valueOf(total));
+                                        couponCode.setText("");
+//                                       deleteCoupon(task.getResult().getId());
                                         Toast.makeText(getApplicationContext(), "Coupon applied successfully!", Toast.LENGTH_SHORT).show();
                                     }
                                 });
@@ -282,9 +320,8 @@ public class CheckoutActivity extends AppCompatActivity implements CompoundButto
     private void pickLocation() {
         Log.d(TAG, "pickLocation called: ");
 
-        Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY, fields).setCountry("UG")
-                .build(this);
-        startActivityForResult(intent, Globals.AUTOCOMPLETE_REQUEST_CODE);
+        Intent addressIntent = new Intent(getApplicationContext(), AddressActivity.class);
+        startActivityForResult(addressIntent, Globals.PICK_ADDRESS_ID);
     }
 
     public void populateUserDetails() {
@@ -294,11 +331,6 @@ public class CheckoutActivity extends AppCompatActivity implements CompoundButto
                 .addOnSuccessListener(documentSnapshot -> {
                     if (documentSnapshot.exists()) {
                         user = documentSnapshot.toObject(User.class);
-                        if (user != null) {
-                            addressName.setText(user.getAddress());
-                            userName.setText(user.getName());
-                            userPhone.setText(user.getPhone());
-                        }
                     }
                 });
     }
@@ -318,12 +350,14 @@ public class CheckoutActivity extends AppCompatActivity implements CompoundButto
         if (isChecked) {
             if (id == R.id.standard_shipping){
                 pickupStation.setChecked(false);
+                order.setAddress(address);
                 updateDeliveryMethod(standardShipping.getText().toString());
                 updateTotals(3000);
             }
 
             if (id == R.id.pickup_station) {
                 standardShipping.setChecked(false);
+                order.setAddress(verityAddress);
                 updateDeliveryMethod(pickupStation.getText().toString());
                 updateTotals(0);
             }
@@ -482,17 +516,13 @@ public class CheckoutActivity extends AppCompatActivity implements CompoundButto
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == Globals.AUTOCOMPLETE_REQUEST_CODE) {
-            if (resultCode == RESULT_OK) {
-                Place place = Autocomplete.getPlaceFromIntent(data);
-                addressName.setText(place.getAddress());
-            } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {
-                Status status = Autocomplete.getStatusFromIntent(data);
-                Log.d(TAG, "Error while picking location: "+status.getStatusMessage());
-                Toast.makeText(this, status.getStatusMessage(), Toast.LENGTH_SHORT).show();
-            } else if (resultCode == RESULT_CANCELED) {
-                Log.d(TAG, "onActivityResult: " + "Cancelled...");
-            }
+
+        if (resultCode == Activity.RESULT_OK && data != null && requestCode == Globals.PICK_ADDRESS_ID) {
+
+            address = data.getParcelableExtra(Globals.MY_SELECTED_ADDRESS);
+            assert address != null;
+            updateAddress(address);
+
         }
     }
 
